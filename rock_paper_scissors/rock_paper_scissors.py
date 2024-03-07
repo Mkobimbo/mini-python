@@ -28,22 +28,21 @@ def points(text_to_scores):
 
 
 #result after user selects rock    
-def rock(text_to_display):
+def rock(text_to_display, text_to_scores):
     global computer_score
     global your_score
     your_choice = "Rock"
     Comp_choice = Comp_dict[str(random.randint(0,2))]
     text_to_display.insert(END, f"Your Choice: {your_choice}\nComputer's Choice:    {Comp_choice}")        
 
+    if Comp_choice == "Paper":
+        computer_score += 1
+    if Comp_choice == "Scissor":
+        your_score += 1
+    points(text_to_scores)
 
-if Comp_choice == "Paper":
-    computer_score += 1
-if Comp_choice == "Scissor":
-    your_score += 1
-points()
 
-
-def paper(text_to_display):
+def paper(text_to_display, text_to_scores):
     global computer_score
     global your_score
     your_choice = "Paper"
@@ -54,10 +53,10 @@ def paper(text_to_display):
         computer_score += 1
     if Comp_choice == "Rock":
         your_score += 1
-    points()
+    points(text_to_scores)
 
 # Function to define what happens when the user selects Scissor
-def scissor(text_to_display):
+def scissor(text_to_display, text_to_scores):
     global computer_score
     global your_score
     your_choice = "Scissor"
@@ -68,4 +67,5 @@ def scissor(text_to_display):
         computer_score += 1
     if Comp_choice == "Paper":
         your_score += 1
-    points()
+    points(text_to_scores)
+
